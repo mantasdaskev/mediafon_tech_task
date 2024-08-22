@@ -15,7 +15,7 @@ public abstract class AppHostBase
             //    config.ReadFrom.Configuration(ctx.Configuration);
             //});
 
-            PreWebApplicationBuildConfig(builder, builder.Services);
+            PreWebApplicationBuildConfig(builder, builder.Services, builder.Configuration);
 
             WebApplication app = builder.Build();
 
@@ -30,7 +30,7 @@ public abstract class AppHostBase
         }
     }
 
-    protected virtual void PreWebApplicationBuildConfig(WebApplicationBuilder builder, IServiceCollection services)
+    protected virtual void PreWebApplicationBuildConfig(WebApplicationBuilder builder, IServiceCollection services, IConfiguration configuration)
     {
     }
 

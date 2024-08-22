@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MediafonTechTask.Core\MediafonTechTask.Core.csproj" />
+    <ProjectReference Include="..\MediafonTechTask.Core\MediafonTechTask.Core.csproj" />
   </ItemGroup>
 
 </Project>
