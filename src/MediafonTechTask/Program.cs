@@ -1,6 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using MediafonTechTask;
 
-app.MapGet("/", () => "Hello World!");
-
-app.Run();
+AppHost appHost = new();
+if (args.Contains("--run-migrations"))
+{
+    appHost.RunMigrations();
+}
+else
+{
+    appHost.BuildAndRun(args);
+}
