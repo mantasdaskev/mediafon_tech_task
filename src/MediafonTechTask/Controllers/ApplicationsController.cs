@@ -1,8 +1,8 @@
 ﻿
-using MediafonTechTask.BusinessLogic.Enums;
 using MediafonTechTask.BusinessLogic.Models;
 using MediafonTechTask.BusinessLogic.Requests;
 using MediafonTechTask.BusinessLogic.Responses;
+using MediafonTechTask.BusinessLogic.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MediafonTechTask.Controllers;
@@ -11,29 +11,25 @@ namespace MediafonTechTask.Controllers;
 [ApiController]
 public class ApplicationsController : ControllerBase
 {
-    public ApplicationsController()
+    private readonly IApplicationsService _applicationsService;
+
+    public ApplicationsController(IApplicationsService applicationsService)
     {
-        
+        _applicationsService = applicationsService;
     }
 
     [HttpGet("{userId}")]
-    public ActionResult<GetApplicationsResponse> GetApplications(string userId)
+    public async Task<ActionResult<GetApplicationsResponse>> GetApplications(string userId)
     {
-
-        IList<FormApplicationDetails> applications =
-        [
-            new ("1", "2024-01-01", ApplicationType.Complaint, ApplicationState.Submitted),
-            new ("2", "2024-01-02", ApplicationType.Request, ApplicationState.Submitted),
-            new ("3", "2024-01-03", ApplicationType.Suggestion, ApplicationState.Confirmed),
-        ];
-
+        IList<FormApplicationDetails> applications = await _applicationsService.GetUserFormApplications(userId);
         GetApplicationsResponse response = new(userId, applications);
         return Ok(response);
     }
 
     [HttpPost("new")]
-    public IActionResult PostNewApplication(NewApplicationRequest request)
+    public async Task<ActionResult<NewApplicationResponse>> PostNewApplication(NewApplicationRequest request)
     {
-        return Ok();
+        return Ok(await _applicationsService.AddNewApplication(request.UserId, 
+            request.Type, request.Message));
     }
 }

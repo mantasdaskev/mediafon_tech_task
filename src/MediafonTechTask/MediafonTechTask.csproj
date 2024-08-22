@@ -10,8 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\" />
-    <Folder Include="Infra\" />
+    <Folder Include="Data\" />
     <Folder Include="Presentation\" />
   </ItemGroup>
 

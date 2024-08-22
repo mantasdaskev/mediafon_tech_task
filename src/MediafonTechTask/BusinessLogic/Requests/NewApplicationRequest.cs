@@ -2,4 +2,4 @@
 
 namespace MediafonTechTask.BusinessLogic.Requests;
 
-public record NewApplicationRequest(ApplicationType Type, string Message);
+public record NewApplicationRequest(string UserId, ApplicationType Type, string Message);
