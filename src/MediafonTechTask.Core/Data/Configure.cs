@@ -10,19 +10,9 @@ public static class Configure
 {
     public static IServiceCollection AddDataLayer(this IServiceCollection services, IConfiguration configuration)
     {
-        string? tst = configuration.GetConnectionString("PgDbConnectionStringg");
-            if (string.IsNullOrEmpty(tst))
-            {
-                Console.WriteLine("Dick");
-            }
-            else
-            {
-                Console.WriteLine($"Dick ==> {tst}");
-            }
         services.AddDbContext<SubmissionsDbContext>(options =>
         {
-            
-            options.UseNpgsql();
+            options.UseNpgsql(configuration.GetConnectionString("PgDbConnectionString"));
         });
 
         services.AddTransient<IUsersRepository, UsersRepository>();
