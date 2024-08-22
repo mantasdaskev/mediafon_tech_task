@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+﻿//using Serilog;
 
 namespace MediafonTechTask;
 
@@ -9,6 +9,11 @@ public abstract class AppHostBase
         try
         {
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+            //builder.Host.UseSerilog((ctx, config) =>
+            //{
+            //    config.ReadFrom.Configuration(ctx.Configuration);
+            //});
 
             PreWebApplicationBuildConfig(builder, builder.Services);
 
