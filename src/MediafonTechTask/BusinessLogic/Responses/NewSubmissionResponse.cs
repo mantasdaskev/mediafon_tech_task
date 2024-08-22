@@ -2,4 +2,4 @@
 
 namespace MediafonTechTask.BusinessLogic.Responses;
 
-public record NewApplicationResponse(FormApplication SubmittedApplication);
+public record NewSubmissionResponse(Submission SubmittedApplication);

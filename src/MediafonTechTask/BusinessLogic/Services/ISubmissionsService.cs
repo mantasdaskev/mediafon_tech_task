@@ -5,10 +5,10 @@ using MediafonTechTask.BusinessLogic.Models;
 
 namespace MediafonTechTask.BusinessLogic.Services;
 
-public interface IApplicationsService
+public interface ISubmissionsService
 {
     //TODO: rethink. Should take only 1 or 2 args
-    Task<FormApplication> AddNewApplication(string userId, ApplicationType type, string message);
+    Task<Submission> AddNewApplication(string userId, SubmissionType type, string message);
 
-    Task<IList<FormApplicationDetails>> GetUserFormApplications(string userId);
+    Task<IList<SubmissionDetails>> GetUserFormApplications(string userId);
 }

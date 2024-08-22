@@ -2,4 +2,4 @@
 
 namespace MediafonTechTask.BusinessLogic.Models;
 
-public record FormApplication(ApplicationType Type, string Message);
+public record Submission(SubmissionType Type, string Message);

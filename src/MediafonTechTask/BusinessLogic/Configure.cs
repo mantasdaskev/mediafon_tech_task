@@ -6,7 +6,7 @@ public static class Configure
 {
     public static IServiceCollection AddBusinessLogicLayer(this IServiceCollection services)
     {
-        services.AddTransient<IApplicationsService, ApplicationsService>();
+        services.AddTransient<ISubmissionsService, SubmissionsService>();
 
         return services;
     }

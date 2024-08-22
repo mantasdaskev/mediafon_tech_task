@@ -1,6 +1,6 @@
 ﻿namespace MediafonTechTask.BusinessLogic.Enums;
 
-public enum ApplicationState
+public enum SubmissionState
 {
     Unknown,
     Submitted,

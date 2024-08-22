@@ -8,6 +8,7 @@ namespace MediafonTechTask.Controllers;
 [ApiController]
 public class LoginController : ControllerBase
 {
+    // POST api/login
     [HttpPost]
     public ActionResult<LoginResponse> Login(LoginRequest request)
     {
