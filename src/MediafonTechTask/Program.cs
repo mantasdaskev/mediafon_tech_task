@@ -1,6 +1,5 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+using MediafonTechTask;
 
-app.Run();
+AppHost appHost = new();
+appHost.BuildAndRun(args);
