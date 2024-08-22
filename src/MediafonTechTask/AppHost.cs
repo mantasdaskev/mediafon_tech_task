@@ -1,6 +1,6 @@
 ﻿// Ignore Spelling: App
 
-using MediafonTechTask.BusinessLogic;
+using MediafonTechTask.Core.BusinessLogic;
 
 namespace MediafonTechTask;
 

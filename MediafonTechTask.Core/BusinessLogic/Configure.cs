@@ -1,6 +1,7 @@
-﻿using MediafonTechTask.BusinessLogic.Services;
+﻿using MediafonTechTask.Core.BusinessLogic.Services;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace MediafonTechTask.BusinessLogic;
+namespace MediafonTechTask.Core.BusinessLogic;
 
 public static class Configure
 {

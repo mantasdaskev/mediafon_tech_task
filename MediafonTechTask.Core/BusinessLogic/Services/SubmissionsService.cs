@@ -1,9 +1,9 @@
 ﻿// Ignore Spelling: Mediafon
 
-using MediafonTechTask.BusinessLogic.Enums;
-using MediafonTechTask.BusinessLogic.Models;
+using MediafonTechTask.Core.BusinessLogic.Enums;
+using MediafonTechTask.Core.BusinessLogic.Models;
 
-namespace MediafonTechTask.BusinessLogic.Services;
+namespace MediafonTechTask.Core.BusinessLogic.Services;
 
 internal sealed class SubmissionsService : ISubmissionsService
 {

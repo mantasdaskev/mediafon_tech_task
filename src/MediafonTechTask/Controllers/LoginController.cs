@@ -1,5 +1,5 @@
-﻿using MediafonTechTask.BusinessLogic.Requests;
-using MediafonTechTask.BusinessLogic.Responses;
+﻿using MediafonTechTask.Core.BusinessLogic.Requests;
+using MediafonTechTask.Core.BusinessLogic.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MediafonTechTask.Controllers;

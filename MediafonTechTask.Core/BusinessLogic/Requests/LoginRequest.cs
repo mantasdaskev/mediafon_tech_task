@@ -1,4 +1,4 @@
-﻿namespace MediafonTechTask.BusinessLogic.Requests;
+﻿namespace MediafonTechTask.Core.BusinessLogic.Requests;
 
 public class LoginRequest
 {

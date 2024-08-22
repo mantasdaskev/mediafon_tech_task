@@ -1,8 +1,7 @@
-﻿
-using MediafonTechTask.BusinessLogic.Models;
-using MediafonTechTask.BusinessLogic.Requests;
-using MediafonTechTask.BusinessLogic.Responses;
-using MediafonTechTask.BusinessLogic.Services;
+﻿using MediafonTechTask.Core.BusinessLogic.Models;
+using MediafonTechTask.Core.BusinessLogic.Requests;
+using MediafonTechTask.Core.BusinessLogic.Responses;
+using MediafonTechTask.Core.BusinessLogic.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MediafonTechTask.Controllers;

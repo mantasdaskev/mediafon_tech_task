@@ -1,4 +1,4 @@
-﻿namespace MediafonTechTask.BusinessLogic.Responses;
+﻿namespace MediafonTechTask.Core.BusinessLogic.Responses;
 
 public class LoginResponse(string userName)
 {

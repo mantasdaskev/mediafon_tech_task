@@ -1,4 +1,4 @@
-﻿namespace MediafonTechTask.BusinessLogic.Enums;
+﻿namespace MediafonTechTask.Core.Data.Enums;
 
 public enum SubmissionState
 {
