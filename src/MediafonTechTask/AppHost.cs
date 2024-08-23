@@ -7,6 +7,15 @@ namespace MediafonTechTask;
 
 public sealed class AppHost : AppHostBase
 {
+    public void RunMigrations()
+    {
+        WebApplicationBuilder builder = WebApplication.CreateBuilder();
+        builder.Services.AddDataLayer(builder.Configuration);
+
+        WebApplication app = builder.Build();
+        app.Services.RunMigrations();
+    }
+
     protected override void PreWebApplicationBuildConfig(WebApplicationBuilder builder, IServiceCollection services, IConfiguration configuration)
     {
         services.AddControllers(); // TODO: move to base later
@@ -20,7 +29,6 @@ public sealed class AppHost : AppHostBase
         app.MapGet("/", () => "Hello World!");
 
         app.MapControllers();
-
 
         //TODO: add swagger
         //TODO: add health check or MapGet with text running or smth

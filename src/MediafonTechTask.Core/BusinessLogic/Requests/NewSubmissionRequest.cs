@@ -1,4 +1,4 @@
-﻿using MediafonTechTask.Core.BusinessLogic.Enums;
+﻿using MediafonTechTask.Core.Enums;
 
 namespace MediafonTechTask.Core.BusinessLogic.Requests;
 

@@ -1,5 +1,11 @@
-
 using MediafonTechTask;
 
 AppHost appHost = new();
-appHost.BuildAndRun(args);
+if (args.Contains("--run-migrations"))
+{
+    appHost.RunMigrations();
+}
+else
+{
+    appHost.BuildAndRun(args);
+}

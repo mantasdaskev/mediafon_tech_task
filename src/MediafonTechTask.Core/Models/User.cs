@@ -1,4 +1,4 @@
-﻿namespace MediafonTechTask.Core.Data.Models;
+﻿namespace MediafonTechTask.Core.Models;
 
 public class User
 {

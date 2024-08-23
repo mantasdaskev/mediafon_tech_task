@@ -1,5 +1,5 @@
-﻿using MediafonTechTask.Core.BusinessLogic.Models;
+﻿using MediafonTechTask.Core.Models;
 
 namespace MediafonTechTask.Core.BusinessLogic.Responses;
 
-public record NewSubmissionResponse(Submission SubmittedApplication);
+public record NewSubmissionResponse();

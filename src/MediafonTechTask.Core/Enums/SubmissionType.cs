@@ -1,4 +1,4 @@
-﻿namespace MediafonTechTask.Core.Data.Enums;
+﻿namespace MediafonTechTask.Core.Enums;
 
 public enum SubmissionType
 {

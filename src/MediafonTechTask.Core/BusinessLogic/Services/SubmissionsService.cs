@@ -1,25 +1,34 @@
 ﻿// Ignore Spelling: Mediafon
 
-using MediafonTechTask.Core.BusinessLogic.Enums;
-using MediafonTechTask.Core.BusinessLogic.Models;
+using MediafonTechTask.Core.BusinessLogic.Interfaces;
+using MediafonTechTask.Core.Enums;
+using MediafonTechTask.Core.Models;
 
 namespace MediafonTechTask.Core.BusinessLogic.Services;
 
 internal sealed class SubmissionsService : ISubmissionsService
 {
-    public Task<IList<SubmissionDetails>> GetUserFormApplications(string userId)
+    private readonly ISubmissionsRepository _repository;
+
+    public SubmissionsService(ISubmissionsRepository repository)
     {
-        IList<SubmissionDetails> applications =
-        [
-            new ("1", "2024-01-01", SubmissionType.Complaint, SubmissionState.Submitted),
-            new ("2", "2024-01-02", SubmissionType.Request, SubmissionState.Submitted),
-            new ("3", "2024-01-03", SubmissionType.Suggestion, SubmissionState.Confirmed),
-        ];
-        return Task.FromResult(applications);
+        _repository = repository;
+    }
+
+    public IList<Submission> GetUserFormApplications(string userId)
+    {
+        return _repository.GetAllById(userId);
     }
 
     public Task<Submission> AddNewApplication(string userId, SubmissionType type, string message)
     {
-        return Task.FromResult(new Submission(type, message));
+        return _repository.Add(new Submission
+        {
+            Id = Guid.NewGuid().ToString(),
+            UserId = userId,
+            Type = type,
+            Message = message,
+            State = SubmissionState.Submitted,
+        });
     }
 }

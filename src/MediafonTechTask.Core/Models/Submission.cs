@@ -1,8 +1,8 @@
-﻿using MediafonTechTask.Core.Data.Enums;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using MediafonTechTask.Core.Enums;
 
-namespace MediafonTechTask.Core.Data.Models;
+namespace MediafonTechTask.Core.Models;
 
 public class Submission
 {
