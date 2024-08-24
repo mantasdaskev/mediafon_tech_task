@@ -1,7 +1,7 @@
 ## Ignore Node
 
-# Angular specific. TODO: check if that might screw smth up
-angular/
+# TODO: check if that might screw smth up
+lib/
 
 # Logs
 logs
