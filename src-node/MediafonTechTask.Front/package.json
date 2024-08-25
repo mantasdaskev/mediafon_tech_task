@@ -5,7 +5,10 @@
   "description": "AngularJS app for a mediafon tech task",
   "repository": "https://github.com/mantasdaskev/mediafon_tech_task",
   "dependencies": {
-    "angular": "^1.8.x",
+    "angular": "1.8.x",
+    "angular-animate": "1.8.x",
+    "angular-resource": "1.8.x",
+    "angular-route": "1.8.x",
     "bootstrap": "5.3.x"
   },
   "devDependencies": {
