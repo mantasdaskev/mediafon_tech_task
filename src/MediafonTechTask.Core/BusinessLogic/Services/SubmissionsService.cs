@@ -31,4 +31,10 @@ internal sealed class SubmissionsService : ISubmissionsService
             State = SubmissionState.Submitted,
         });
     }
+
+    public Task<Submission> ConfirmSubmission(Submission submission)
+    {
+        submission.State = SubmissionState.Confirmed;
+        return _repository.Update(submission);
+    }
 }

@@ -6,10 +6,10 @@ import { LoginResponse } from "../models/login.response";
 import { NewSubmission } from "../models/new.submission";
 import { catchError, of } from "rxjs";
 
+import { CONFIG } from "./CONFIG";
+
 @Injectable()
 export class SubmissionsApiService{ 
-
-    private readonly ROOT = 'https://localhost:7156';
     private readonly USERID_KEY = 'userId';
 
     private _httpOptions = {
@@ -25,7 +25,7 @@ export class SubmissionsApiService{
 
     getSubmissions(callback: (subsResponse: Submission[]) => void) {
         this._client
-                .get<Submission[]>(this.ROOT + '/api/submissions/' + localStorage.getItem(this.USERID_KEY), this._httpOptions)
+                .get<Submission[]>(CONFIG.baseUrl + '/api/submissions/' + localStorage.getItem(this.USERID_KEY), this._httpOptions)
                     .subscribe(r => callback(r));
     }
 
@@ -35,7 +35,7 @@ export class SubmissionsApiService{
         }
 
         this._client
-            .post<LoginResponse>(this.ROOT + '/api/login', body, this._httpOptions)
+            .post<LoginResponse>(CONFIG.baseUrl + '/api/login', body, this._httpOptions)
             .pipe(
                 catchError((error) => {
                     console.error("Failed to get user", error);
@@ -68,7 +68,7 @@ export class SubmissionsApiService{
         console.log(JSON.stringify(body));
 
         this._client
-            .post(this.ROOT + '/api/submissions/new', body, this._httpOptions)
+            .post(CONFIG.baseUrl + '/api/submissions/new', body, this._httpOptions)
             .pipe(
                 catchError((error) => {
                     console.error("Failed to get user", error);

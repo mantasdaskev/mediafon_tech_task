@@ -11,22 +11,32 @@ namespace MediafonTechTask.Controllers;
 public class LoginController : ControllerBase
 {
     private readonly IUserService _userService;
+    private readonly ILogger<LoginController> _logger;
 
-    public LoginController(IUserService userService)
+    public LoginController(IUserService userService, ILogger<LoginController> logger)
     {
         _userService = userService;
+        _logger = logger;
     }
 
     // POST api/login
     [HttpPost]
     public async Task<ActionResult<LoginResponse>> Login(LoginRequest request)
     {
-        User user = await _userService.EnsureUser(request.UserName);
-        if (string.IsNullOrEmpty(user.Id))
+        try
         {
-            throw new Exception("User id was not set."); //TODO:
-        }
+            User user = await _userService.EnsureUser(request.UserName);
+            if (string.IsNullOrEmpty(user.Id))
+            {
+                throw new Exception("User id was not set."); //TODO:
+            }
 
-        return Ok(new LoginResponse(user.Id));
+            return Ok(new LoginResponse(user.Id));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to get user {UserName}.", request.UserName);
+            return BadRequest();
+        }
     }
 }

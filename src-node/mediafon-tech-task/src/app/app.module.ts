@@ -9,6 +9,7 @@ import { SubmissionsApiService } from './services/submissions.api.service';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { NewSubmissionComponent } from './new-submission/new-submission.component';
+import { SubmissionsStateHubService } from './services/submissions.state.hub.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NewSubmissionComponent } from './new-submission/new-submission.componen
   ],
   providers: [
     provideHttpClient( withFetch() ),
-    SubmissionsApiService
+    SubmissionsApiService,
+    SubmissionsStateHubService
   ],
   bootstrap: [AppComponent]
 })
