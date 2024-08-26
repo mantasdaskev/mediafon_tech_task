@@ -1,8 +1,5 @@
 ﻿namespace MediafonTechTask.Core.BusinessLogic.Requests;
 
-public class LoginRequest
-{
-    //TODO: probably could get things from token. Lets leave it as is for now.
+//TODO: probably could get things from token. Lets leave it as is for now.
+public record LoginRequest(string UserName);
 
-    public string UserName { get; set; } = string.Empty;
-}

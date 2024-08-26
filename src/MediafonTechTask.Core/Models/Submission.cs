@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using MediafonTechTask.Core.Enums;
+using MediafonTechTask.Core.BusinessLogic.Interfaces;
 
 namespace MediafonTechTask.Core.Models;
 
-public class Submission
+public class Submission : IEntity
 {
     [Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string? Id { get; set; }
