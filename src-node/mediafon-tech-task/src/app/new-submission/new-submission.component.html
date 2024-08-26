@@ -1,13 +1,13 @@
 <div class="popup-overlay">
     <div class="popup-content">
         <h2>New submission</h2>
-        <select id="submissionType" [(ngModel)]="selectedType">
+        <select class="pop-up-item" id="submissionType" [(ngModel)]="selectedType">
             <option *ngFor="let submissionType of getEnumKeys(submissionTypes)" [ngValue]="submissionType">
               {{ mapToText(submissionType) }}
             </option>
           </select>
-        <input type="text" id="submissionMessage" [(ngModel)]="submissionMessage" />
-        <button (click)="onSubmit()">Submit</button>
+        <input type="text" class="pop-up-item" id="submissionMessage" [(ngModel)]="submissionMessage" />
+        <button class="button-5" (click)="onSubmit()">Submit</button>
         <button class="close-button" (click)="onClose()">X</button>
     </div>
 </div>

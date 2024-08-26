@@ -2,8 +2,7 @@
 
 namespace MediafonTechTask.Core.BusinessLogic.Responses;
 
-//TODO: delete user Id. Used for testing
-public record GetSubmissionsResponse(string UserId, IList<Submission> Submissions)
+public record GetSubmissionsResponse(IList<Submission> Submissions)
 {
     public static IList<Submission> Map(IList<Models.Submission> submissions)
     {

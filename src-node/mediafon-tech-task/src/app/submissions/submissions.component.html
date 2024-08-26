@@ -1,5 +1,5 @@
 <h2>{{ title }}</h2>
-<button class="btn btn-primary" (click)="onShowNewForm()">New</button>
+<button class="button-5" (click)="onShowNewForm()">New</button>
 <div id="subs-list" *ngFor="let sub of submissions">
     <app-submission [submissionId]="sub.id" [date]="sub.date" [type]="sub.type" [state]="sub.state"></app-submission>
 </div>

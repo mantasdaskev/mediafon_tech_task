@@ -1,0 +1,14 @@
+div {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+#label-container {
+    margin-right: 24px;
+    align-items: center;
+}
+
+button{
+    margin-left: 24px;
+}
