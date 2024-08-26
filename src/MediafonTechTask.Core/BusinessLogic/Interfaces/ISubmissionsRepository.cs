@@ -7,4 +7,6 @@ public interface ISubmissionsRepository
     Task<Submission> Add(Submission submission);
 
     IList<Submission> GetAllById(string userId);
+
+    Task<Submission> Update(Submission submission);
 }

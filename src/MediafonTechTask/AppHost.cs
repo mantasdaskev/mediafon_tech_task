@@ -2,6 +2,8 @@
 
 using MediafonTechTask.Core.BusinessLogic;
 using MediafonTechTask.Core.Data;
+using MediafonTechTask.Hubs;
+using MediafonTechTask.Services;
 
 namespace MediafonTechTask;
 
@@ -31,16 +33,22 @@ public sealed class AppHost : AppHostBase
             });
         });
 
+        services.AddSignalR();
+
         services.AddControllers(); // TODO: move to base later
 
         services.AddBusinessLogicLayer();
         services.AddDataLayer(configuration);
+
+        services.AddHostedService<SubmissionStateUpdater>();
 
     }
 
     protected override void PostWebApplicationBuildConfig(WebApplication app)
     {
         app.MapGet("/", () => "Hello World!");
+
+        app.MapHub<SubmissionsStateHub>("submissions-state-hub");
 
         app.MapControllers();
 

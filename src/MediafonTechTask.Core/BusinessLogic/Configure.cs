@@ -8,6 +8,7 @@ public static class Configure
     public static IServiceCollection AddBusinessLogicLayer(this IServiceCollection services)
     {
         services.AddTransient<ISubmissionsService, SubmissionsService>();
+        services.AddTransient<IUserService, UserService>();
 
         return services;
     }

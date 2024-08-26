@@ -1,0 +1,12 @@
+#sub-element {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  #sub-element div {
+    flex: 1; 
+  }
+  
+  /* hr {
+    display: block;
+  } */

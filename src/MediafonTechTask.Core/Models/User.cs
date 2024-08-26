@@ -1,6 +1,8 @@
-﻿namespace MediafonTechTask.Core.Models;
+﻿using MediafonTechTask.Core.BusinessLogic.Interfaces;
 
-public class User
+namespace MediafonTechTask.Core.Models;
+
+public class User : IEntity
 {
     public string? Id { get; set; }
 
@@ -8,5 +10,5 @@ public class User
 
     public string? PasswordHash { get; set; }
 
-    public IEnumerable<Submission> Submissions { get; set; } = Enumerable.Empty<Submission>();
+    public IEnumerable<Submission> Submissions { get; set; } = [];
 }
