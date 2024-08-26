@@ -10,10 +10,10 @@ import { NewSubmission } from '../models/new.submission'
 export class NewSubmissionComponent {
   @Output() submitEvent = new EventEmitter<NewSubmission>();
   @Output() closeEvent = new EventEmitter<void>();
-  submissionMessage : string = '';
+  submissionMessage: string = '';
 
   submissionTypes = SubmissionType;
-  selectedType : SubmissionType = SubmissionType.Undefined;
+  selectedType: SubmissionType = SubmissionType.Undefined;
 
   onSubmit(){
     if(this.selectedType === SubmissionType.Undefined){

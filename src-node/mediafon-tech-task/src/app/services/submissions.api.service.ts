@@ -20,16 +20,16 @@ export class SubmissionsApiService{
         })
       };
 
-    constructor(private _client : HttpClient) {
+    constructor(private _client: HttpClient) {
     }
 
-    getSubmissions(callback: (subsResponse : Submission[]) => void) {
+    getSubmissions(callback: (subsResponse: Submission[]) => void) {
         this._client
                 .get<Submission[]>(this.ROOT + '/api/submissions/' + localStorage.getItem(this.USERID_KEY), this._httpOptions)
                     .subscribe(r => callback(r));
     }
 
-    tryGetUserContext(userName : string, callback: (isSuccess : boolean) => void) {
+    tryGetUserContext(userName: string, callback: (isSuccess: boolean) => void) {
         let body = {
             "username": userName
         }
@@ -43,23 +43,22 @@ export class SubmissionsApiService{
                     return of(null);
                 })
             )    
-            .subscribe(
-                    (response) =>
-                    {
-                        if (response === null){
-                            console.warn("Getting user was successful but response was received empty.");
-                            callback(false);
-                            return;
-                        }
-                        console.log("Received user. Id: " + response.userId);
-                        //TODO: would be good to clear at some point...
-                        localStorage.setItem(this.USERID_KEY, response.userId)
-                        
-                        callback(true);
-                    });
+            .subscribe((response) =>
+            {
+                if (response === null){
+                    console.warn("Getting user was successful but response was received empty.");
+                    callback(false);
+                    return;
+                }
+                console.log("Received user. Id: " + response.userId);
+                //TODO: would be good to clear at some point...
+                localStorage.setItem(this.USERID_KEY, response.userId)
+                
+                callback(true);
+            });
     }
 
-    postNewSubmission(newSubmission: NewSubmission, callback: (isSuccess : boolean) => void){
+    postNewSubmission(newSubmission: NewSubmission, callback: (isSuccess: boolean) => void){
         let body = {
             "userid": localStorage.getItem(this.USERID_KEY),
             "type": newSubmission.type,
@@ -77,10 +76,9 @@ export class SubmissionsApiService{
                     return of(null);
                 })
             )    
-            .subscribe(
-                    () =>
-                    {
-                        callback(true);
-                    });
+            .subscribe(() =>
+            {
+                callback(true);
+            });
         }
 }

@@ -12,8 +12,8 @@ export class SubmissionsComponent {
 private readonly _submissionsService : SubmissionsApiService;
 
   title = "Submitted submissions";
-  submissions? : Submission[];
-  isNewSubFormShown : boolean = false;
+  submissions?: Submission[];
+  isNewSubFormShown: boolean = false;
 
   constructor(submissionsService: SubmissionsApiService){
     this._submissionsService = submissionsService;

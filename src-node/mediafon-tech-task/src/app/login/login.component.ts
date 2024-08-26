@@ -8,10 +8,10 @@ import { SubmissionsApiService } from '../services/submissions.api.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  private readonly _apiService : SubmissionsApiService;
-  private readonly _router : Router;
+  private readonly _apiService: SubmissionsApiService;
+  private readonly _router: Router;
   
-  private _userName : string = '';
+  private _userName: string = '';
 
   constructor(service: SubmissionsApiService, router: Router){
     this._apiService = service;
@@ -19,7 +19,7 @@ export class LoginComponent {
   }
 
   get userName() { return this._userName; }
-  set userName(value : string) { this._userName = value; }
+  set userName(value: string) { this._userName = value; }
 
   onSubmit() {
     if(this.userName.trim() === ''){
@@ -28,7 +28,7 @@ export class LoginComponent {
       return;
     }
 
-    this._apiService.tryGetUserContext(this.userName, (isSuccess : boolean) => {
+    this._apiService.tryGetUserContext(this.userName, (isSuccess: boolean) => {
       if (!isSuccess){
         alert("Failed to get user!");
         return;
