@@ -2,8 +2,7 @@
 
 namespace MediafonTechTask.Core.BusinessLogic.Responses;
 
-//TODO: delete user Id. Used for testing
-public record GetSubmissionsResponse(string UserId, IList<Submission> Submissions)
+public record GetSubmissionsResponse(IList<Submission> Submissions)
 {
     public static IList<Submission> Map(IList<Models.Submission> submissions)
     {
@@ -16,11 +15,13 @@ public record GetSubmissionsResponse(string UserId, IList<Submission> Submission
     }
 }
 
-public record Submission(string Id, SubmissionType Type, SubmissionState State)
+public record Submission(string Id, string Date, SubmissionType Type, SubmissionState State)
 {
     public static Submission Map(Models.Submission submission)
     {
         return new(submission.Id ?? throw new Exception("Submission must have an id"), //TODO: custom exc or validations?
-            submission.Type, submission.State);
+            submission.CreatedAt.Date.ToString("yyyy-MM-dd"), 
+            submission.Type, 
+            submission.State);
     }
 }

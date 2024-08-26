@@ -22,7 +22,7 @@ namespace MediafonTechTask.Core.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("MediafonTechTask.Core.Data.Models.Submission", b =>
+            modelBuilder.Entity("MediafonTechTask.Core.Models.Submission", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace MediafonTechTask.Core.Migrations
                     b.ToTable("Submissions");
                 });
 
-            modelBuilder.Entity("MediafonTechTask.Core.Data.Models.User", b =>
+            modelBuilder.Entity("MediafonTechTask.Core.Models.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -67,14 +67,14 @@ namespace MediafonTechTask.Core.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("MediafonTechTask.Core.Data.Models.Submission", b =>
+            modelBuilder.Entity("MediafonTechTask.Core.Models.Submission", b =>
                 {
-                    b.HasOne("MediafonTechTask.Core.Data.Models.User", null)
+                    b.HasOne("MediafonTechTask.Core.Models.User", null)
                         .WithMany("Submissions")
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("MediafonTechTask.Core.Data.Models.User", b =>
+            modelBuilder.Entity("MediafonTechTask.Core.Models.User", b =>
                 {
                     b.Navigation("Submissions");
                 });

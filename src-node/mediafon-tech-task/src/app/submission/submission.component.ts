@@ -10,23 +10,30 @@ import { SubmissionState } from '../models/submission.state';
 
 
 export class SubmissionComponent {
-  private _type : SubmissionType = SubmissionType.Undefined;
-  private _state : SubmissionState = SubmissionState.Unknown;
+  private _type: SubmissionType = SubmissionType.Undefined;
+  private _state: SubmissionState = SubmissionState.Unknown;
+  private _submissionId: string = '';
 
-  @Input() submissionId : string = '';
-  @Input() date : string = ''; 
+  @Input() date: string = ''; 
 
-  @Input() get type() : string {
+  @Input() get submissionId(){
+    return this._submissionId.split('-')[0];
+  }
+  set submissionId(value: string){
+    this._submissionId = value;
+  }
+
+  @Input() get type(): string {
     return SubmissionType[this._type];
   }
-  set type(value : SubmissionType){
+  set type(value: SubmissionType){
     this._type = value;
   }
 
-  @Input() get state() : string {
+  @Input() get state(): string {
     return SubmissionState[this._state];
   }
-  set state(value : SubmissionState){
+  set state(value: SubmissionState){
     this._state = value;
   }
 }
